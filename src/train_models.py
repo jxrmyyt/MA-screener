@@ -59,10 +59,17 @@ def loocv_evaluate(model, X, y):
         m.fit(X_train_s, y_train)
 
         pred = m.predict(X_test_s)[0]
-        if hasattr(m, "decision_function"):
-            prob = m.decision_function(X_test_s)[0]   # deterministic ranking score
-        elif hasattr(m, "predict_proba"):
+        # Prefer predict_proba (a true, displayable 0-1 probability) wherever available.
+        # decision_function is only a raw margin score -- fine for ranking (ROC-AUC is
+        # rank-invariant under a monotonic transform like sigmoid) but not for showing
+        # a company a "72%" that isn't actually a probability. Every model in MODELS
+        # currently has predict_proba (logistic regression natively, decision tree and
+        # random forest natively, SVM via CalibratedClassifierCV), so this fallback only
+        # matters if a future model without predict_proba is added.
+        if hasattr(m, "predict_proba"):
             prob = m.predict_proba(X_test_s)[0][1]
+        elif hasattr(m, "decision_function"):
+            prob = m.decision_function(X_test_s)[0]
         else:
             prob = pred
 
@@ -99,18 +106,18 @@ def main():
     with open("outputs/model_metrics.json", "w") as f:
         json.dump(results, f, indent=2)
 
-    # Save per-company LOOCV predicted probabilities for the best model (by ROC-AUC)
     best_model_name = max(results, key=lambda k: results[k]["roc_auc"])
     print(f"\nBest model by LOOCV ROC-AUC: {best_model_name}")
 
-    pred_df = pd.DataFrame({
-        "company": companies,
-        "actual_label": y,
-        f"{best_model_name}_predicted_prob": predictions[best_model_name],
-    }).sort_values(f"{best_model_name}_predicted_prob", ascending=False)
+    # Save every model's out-of-fold predictions, not just the winner's -- lets the app
+    # show how all four models rank the same company side by side (e.g. the SVM vs.
+    # tree-model disagreement documented in the README), not just the best one's view.
+    pred_df = pd.DataFrame({"company": companies, "actual_label": y})
+    for name in MODELS:
+        pred_df[f"{name}_predicted_prob"] = predictions[name]
+    pred_df = pred_df.sort_values(f"{best_model_name}_predicted_prob", ascending=False)
     pred_df.to_csv("outputs/loocv_predictions.csv", index=False)
 
-    # Fit the best model on ALL data (for the live screener app) + feature importance
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
     final_model = clone(MODELS[best_model_name])
@@ -125,7 +132,6 @@ def main():
     elif hasattr(final_model, "feature_importances_"):
         importance = dict(zip(FEATURE_COLS, final_model.feature_importances_.round(3).tolist()))
     elif hasattr(final_model, "base_estimator_"):
-        # Handle CalibratedClassifierCV and similar wrappers
         base = final_model.base_estimator_
         if hasattr(base, "coef_"):
             importance = dict(zip(FEATURE_COLS, base.coef_[0].round(3).tolist()))
@@ -140,6 +146,12 @@ def main():
     print("\nFeature importance / coefficients:")
     for k, v in sorted(importance.items(), key=lambda x: -abs(x[1])):
         print(f"  {k:28s} {v:+.3f}")
+
+    print("\nTop 5 currently-independent companies by predicted target probability:")
+    controls = pred_df[pred_df["actual_label"] == 0].head(5)
+    for _, row in controls.iterrows():
+        prob_col = f"{best_model_name}_predicted_prob"
+        print(f"  {row['company']:32s} {row[prob_col]*100:.1f}%")
 
 
 if __name__ == "__main__":
