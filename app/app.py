@@ -141,7 +141,7 @@ with tab1:
         "leave-one-out predictions, so no company's own outcome leaked into its score."
     )
 
-        prob_col = f"{model_choice}_predicted_prob"
+    prob_col = f"{model_choice}_predicted_prob"
     controls_only = preds[preds["actual_label"] == 0][["company", prob_col]].copy()
     controls_only = controls_only.rename(columns={prob_col: "predicted target probability"})
     # ProgressColumn's format string doesn't auto-scale a 0-1 fraction into a percent --
