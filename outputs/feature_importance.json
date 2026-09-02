@@ -1,0 +1,13 @@
+{
+  "model": "decision_tree",
+  "importance": {
+    "log_revenue": 0.0,
+    "revenue_growth_yoy_pct": 0.0,
+    "gross_margin_pct": 0.0,
+    "operating_margin_pct": 0.0,
+    "rd_expense_pct_of_revenue": 0.0,
+    "debt_to_revenue": 0.0,
+    "cash_to_revenue": 0.656,
+    "net_debt_to_revenue": 0.344
+  }
+}

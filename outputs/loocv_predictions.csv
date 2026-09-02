@@ -1,0 +1,37 @@
+company,actual_label,decision_tree_predicted_prob
+Xilinx,1,1.0
+Fairchild Semiconductor,1,1.0
+IXYS Corporation,1,1.0
+Linear Technology,1,1.0
+MACOM Technology Solutions,0,1.0
+Diodes Incorporated,0,1.0
+Dialog Semiconductor,1,1.0
+Broadcom Corporation,1,1.0
+Integrated Device Technology,1,1.0
+Intersil Corporation,1,1.0
+Lattice Semiconductor,0,1.0
+Freescale Semiconductor,1,0.6666666666666666
+Cavium Inc,1,0.6666666666666666
+Sierra Wireless,1,0.6
+Atmel Corporation,1,0.6
+Synaptics,0,0.5
+Allegro MicroSystems,0,0.5
+Semtech Corporation,0,0.5
+Vishay Intertechnology,0,0.5
+Microchip Technology,0,0.5
+Skyworks Solutions,0,0.125
+onsemi,0,0.125
+Qorvo,0,0.125
+Maxim Integrated,1,0.0
+Inphi Corporation,1,0.0
+Cypress Semiconductor,1,0.0
+Monolithic Power Systems,0,0.0
+Quantenna Communications,1,0.0
+Cirrus Logic,0,0.0
+Silicon Laboratories,0,0.0
+Power Integrations,0,0.0
+Rambus,0,0.0
+Ambarella,0,0.0
+CEVA Inc,0,0.0
+SiTime Corporation,0,0.0
+Universal Display Corporation,0,0.0
