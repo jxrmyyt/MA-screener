@@ -141,10 +141,15 @@ with tab1:
         "leave-one-out predictions, so no company's own outcome leaked into its score."
     )
 
-    prob_col = f"{model_choice}_predicted_prob"
+        prob_col = f"{model_choice}_predicted_prob"
     controls_only = preds[preds["actual_label"] == 0][["company", prob_col]].copy()
     controls_only = controls_only.rename(columns={prob_col: "predicted target probability"})
-    controls_only["predicted target probability"] = controls_only["predicted target probability"].clip(0, 1)
+    # ProgressColumn's format string doesn't auto-scale a 0-1 fraction into a percent --
+    # it just prints the raw value -- so convert to a 0-100 scale before display, or
+    # "63.7%" silently becomes "0.6%".
+    controls_only["predicted target probability"] = (
+        controls_only["predicted target probability"].clip(0, 1) * 100
+    )
     controls_only = controls_only.sort_values("predicted target probability", ascending=False)
     controls_only.insert(0, "rank", range(1, len(controls_only) + 1))
 
@@ -157,7 +162,7 @@ with tab1:
                 "predicted target probability",
                 format="%.1f%%",
                 min_value=0.0,
-                max_value=1.0,
+                max_value=100.0,
             )
         },
     )
