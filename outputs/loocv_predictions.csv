@@ -1,37 +1,37 @@
-company,actual_label,decision_tree_predicted_prob
-Xilinx,1,1.0
-Fairchild Semiconductor,1,1.0
-IXYS Corporation,1,1.0
-Linear Technology,1,1.0
-MACOM Technology Solutions,0,1.0
-Diodes Incorporated,0,1.0
-Dialog Semiconductor,1,1.0
-Broadcom Corporation,1,1.0
-Integrated Device Technology,1,1.0
-Intersil Corporation,1,1.0
-Lattice Semiconductor,0,1.0
-Freescale Semiconductor,1,0.6666666666666666
-Cavium Inc,1,0.6666666666666666
-Sierra Wireless,1,0.6
-Atmel Corporation,1,0.6
-Synaptics,0,0.5
-Allegro MicroSystems,0,0.5
-Semtech Corporation,0,0.5
-Vishay Intertechnology,0,0.5
-Microchip Technology,0,0.5
-Skyworks Solutions,0,0.125
-onsemi,0,0.125
-Qorvo,0,0.125
-Maxim Integrated,1,0.0
-Inphi Corporation,1,0.0
-Cypress Semiconductor,1,0.0
-Monolithic Power Systems,0,0.0
-Quantenna Communications,1,0.0
-Cirrus Logic,0,0.0
-Silicon Laboratories,0,0.0
-Power Integrations,0,0.0
-Rambus,0,0.0
-Ambarella,0,0.0
-CEVA Inc,0,0.0
-SiTime Corporation,0,0.0
-Universal Display Corporation,0,0.0
+company,actual_label,random_forest_predicted_prob
+Fairchild Semiconductor,1,0.8922771037442093
+Integrated Device Technology,1,0.8672388020476256
+IXYS Corporation,1,0.8396116997038051
+Linear Technology,1,0.7664475455100456
+Intersil Corporation,1,0.7586238859180034
+Broadcom Corporation,1,0.7172929767600822
+Xilinx,1,0.6857738095238095
+Lattice Semiconductor,0,0.6373287224471433
+Dialog Semiconductor,1,0.6261801948051947
+Freescale Semiconductor,1,0.6058981354902409
+Cavium Inc,1,0.5584801506972559
+Diodes Incorporated,0,0.5538706501831502
+MACOM Technology Solutions,0,0.5527943722943723
+Vishay Intertechnology,0,0.5192281746031747
+Atmel Corporation,1,0.49359901794112326
+Microchip Technology,0,0.4860851370851372
+onsemi,0,0.48387783295136244
+Synaptics,0,0.4399652777777777
+Allegro MicroSystems,0,0.4357479628214921
+Semtech Corporation,0,0.4290396825396825
+Skyworks Solutions,0,0.42784821428571435
+Sierra Wireless,1,0.4080376984126985
+Maxim Integrated,1,0.37717460317460305
+Inphi Corporation,1,0.3682258771929824
+Power Integrations,0,0.35567611555111556
+Quantenna Communications,1,0.34378174603174616
+Monolithic Power Systems,0,0.335622639207198
+Cirrus Logic,0,0.2978063672438673
+Qorvo,0,0.26800945378151253
+SiTime Corporation,0,0.23889285714285705
+Cypress Semiconductor,1,0.23770764652014656
+CEVA Inc,0,0.20241666666666666
+Silicon Laboratories,0,0.19213997113997114
+Universal Display Corporation,0,0.18789880952380955
+Ambarella,0,0.1485079365079365
+Rambus,0,0.131125

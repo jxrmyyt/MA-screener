@@ -19,9 +19,11 @@ import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import LeaveOneOut
+from sklearn.base import clone
 from sklearn.metrics import (
     accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
 )
@@ -36,6 +38,8 @@ RANDOM_STATE = 8
 MODELS = {
     "logistic_regression": LogisticRegression(max_iter=1000, C=1.0, random_state=RANDOM_STATE),
     "decision_tree": DecisionTreeClassifier(max_depth=3, min_samples_leaf=3, random_state=RANDOM_STATE),
+    "svm_rbf": CalibratedClassifierCV(SVC(kernel="rbf", C=1.0, random_state=RANDOM_STATE), ensemble=False),
+    "random_forest": RandomForestClassifier(n_estimators=200, max_depth=4, min_samples_leaf=2, random_state=RANDOM_STATE),
 }
 
 
@@ -51,11 +55,16 @@ def loocv_evaluate(model, X, y):
         X_train_s = scaler.fit_transform(X_train)
         X_test_s = scaler.transform(X_test)
 
-        m = model.__class__(**model.get_params())
+        m = clone(model)
         m.fit(X_train_s, y_train)
 
         pred = m.predict(X_test_s)[0]
-        prob = m.predict_proba(X_test_s)[0][1] if hasattr(m, "predict_proba") else pred
+        if hasattr(m, "decision_function"):
+            prob = m.decision_function(X_test_s)[0]   # deterministic ranking score
+        elif hasattr(m, "predict_proba"):
+            prob = m.predict_proba(X_test_s)[0][1]
+        else:
+            prob = pred
 
         y_true.append(y_test[0])
         y_pred.append(pred)
@@ -104,7 +113,7 @@ def main():
     # Fit the best model on ALL data (for the live screener app) + feature importance
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
-    final_model = MODELS[best_model_name].__class__(**MODELS[best_model_name].get_params())
+    final_model = clone(MODELS[best_model_name])
     final_model.fit(X_scaled, y)
 
     import joblib
@@ -115,6 +124,15 @@ def main():
         importance = dict(zip(FEATURE_COLS, final_model.coef_[0].round(3).tolist()))
     elif hasattr(final_model, "feature_importances_"):
         importance = dict(zip(FEATURE_COLS, final_model.feature_importances_.round(3).tolist()))
+    elif hasattr(final_model, "base_estimator_"):
+        # Handle CalibratedClassifierCV and similar wrappers
+        base = final_model.base_estimator_
+        if hasattr(base, "coef_"):
+            importance = dict(zip(FEATURE_COLS, base.coef_[0].round(3).tolist()))
+        elif hasattr(base, "feature_importances_"):
+            importance = dict(zip(FEATURE_COLS, base.feature_importances_.round(3).tolist()))
+        else:
+            importance = {}
     else:
         importance = {}
     with open("outputs/feature_importance.json", "w") as f:
