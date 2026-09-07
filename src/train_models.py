@@ -81,10 +81,13 @@ def loocv_evaluate(model, X, y):
 
 
 def main():
-    df, _ = build_dataset()
+    df, _, baselines = build_dataset()
     X = df[FEATURE_COLS].values
     y = df["label"].values
     companies = df["company"].values
+
+    with open("outputs/sector_baselines.json", "w") as f:
+        json.dump(baselines, f, indent=2)
 
     results = {}
     predictions = {}
@@ -112,7 +115,7 @@ def main():
     # Save every model's out-of-fold predictions, not just the winner's -- lets the app
     # show how all four models rank the same company side by side (e.g. the SVM vs.
     # tree-model disagreement documented in the README), not just the best one's view.
-    pred_df = pd.DataFrame({"company": companies, "actual_label": y})
+    pred_df = pd.DataFrame({"company": companies, "sector": df["sector"].values, "actual_label": y})
     for name in MODELS:
         pred_df[f"{name}_predicted_prob"] = predictions[name]
     pred_df = pred_df.sort_values(f"{best_model_name}_predicted_prob", ascending=False)
@@ -125,7 +128,8 @@ def main():
 
     import joblib
     joblib.dump({"model": final_model, "scaler": scaler, "features": FEATURE_COLS,
-                 "model_name": best_model_name}, "outputs/final_model.joblib")
+                 "model_name": best_model_name,
+                 "sectors": sorted(df["sector"].unique().tolist())}, "outputs/final_model.joblib")
 
     if hasattr(final_model, "coef_"):
         importance = dict(zip(FEATURE_COLS, final_model.coef_[0].round(3).tolist()))
