@@ -1,21 +1,60 @@
-company,ticker,fiscal_year_used,annual_revenue_usd_millions,revenue_growth_yoy_pct,gross_margin_pct,operating_margin_pct,rd_expense_pct_of_revenue,total_debt_usd_millions,cash_and_equivalents_usd_millions,market_cap_usd_millions,pe_ratio
-Skyworks Solutions,SWKS,FY2025 (ended Oct 3 2025),4087,-2.18,41.16,12.52,19.22,1203,1388,10083,34.63
-Qorvo,QRVO,FY2026 (ended Mar 28 2026),3679,-1.09,46.20,14.99,19.74,1606,1219,8476,22.25
-Microchip Technology,MCHP,FY2026 (ended Mar 31 2026),4713,7.08,57.73,11.24,23.04,5642,240.3,39884,108.26
-Monolithic Power Systems,MPWR,FY2025 (ended Dec 31 2025),2790,26.43,55.18,26.11,13.70,24.1,1257,62302,77.34
-Silicon Laboratories,SLAB,FY2025 (ended Jan 3 2026),784.76,34.29,58.23,-8.99,45.02,23.96,443.62,7309,N/A
-Power Integrations,POWI,FY2025 (ended Dec 31 2025),443.5,5.85,54.49,4.85,22.80,18.88,249.51,2871,116.68
-Lattice Semiconductor,LSCC,FY2025 (ended Jan 3 2026),523.26,2.72,68.22,2.92,34.38,42.11,133.89,16382,450.98
-Rambus,RMBS,FY2025 (ended Dec 31 2025),707.63,27.13,80.56,36.77,26.53,24.98,761.83,9403,39.76
-MACOM Technology Solutions,MTSI,FY2025 (ended Oct 3 2025),967.26,32.58,54.69,13.41,25.28,603.45,785.98,20149,84.02
-Cirrus Logic,CRUS,FY2026 (ended Mar 28 2026),1997,5.34,52.78,23.05,21.73,133.98,1154,5488,13.37
-Diodes Incorporated,DIOD,FY2025 (ended Dec 31 2025),1482,13.04,31.20,2.46,10.94,95.61,377.03,4181,48.83
-Vishay Intertechnology,VSH,FY2025 (ended Dec 31 2025),3069,4.47,19.38,1.23,N/A,1073,515.23,4667,146.66
-Ambarella,AMBA,FY2026 (ended Jan 31 2026),390.7,37.15,59.19,-21.12,61.06,13.44,312.57,3044,N/A (fwd PE 84.08)
-Synaptics,SYNA,FY2026 (ended Jun 27 2026),1197,11.44,44.72,-4.76,31.90,876.8,442.5,3782,N/A (fwd PE 18.68)
-onsemi,ON,FY2025 (ended Dec 31 2025),5995,-15.35,38.32,17.84,9.73,3253,2548,28844,47.47
-Allegro MicroSystems,ALGM,FY2026 (ended Mar 27 2026),890.1,22.77,46.49,4.32,22.59,305.91,168.75,6757,N/A (unprofitable)
-CEVA Inc,CEVA,FY2025 (ended Dec 31 2025),109.6,2.49,87.08,-10.35,68.28,16.13,222.04,762,N/A (fwd PE 38.96)
-SiTime Corporation,SITM,FY2025 (ended Dec 31 2025),326.66,61.16,53.57,-19.05,36.95,3.61,808.41,17003,1083.34
-Universal Display Corporation,OLED,FY2025 (ended Dec 31 2025),650.61,0.45,74.88,38.21,22.46,24.24,602.36,3823,20.07
-Semtech Corporation,SMTC,FY2026 (ended Jan 25 2026),1050,15.47,52.51,11.74,18.70,517.99,195.18,12409,81.81
+company,ticker,sector,fiscal_year_used,annual_revenue_usd_millions,revenue_growth_yoy_pct,gross_margin_pct,operating_margin_pct,rd_expense_pct_of_revenue,total_debt_usd_millions,cash_and_equivalents_usd_millions,market_cap_usd_millions,pe_ratio
+Skyworks Solutions,SWKS,Semiconductor,FY2025 (ended Oct 3 2025),4087.0,-2.18,41.16,12.52,19.22,1203.0,1388.0,10083,34.63
+Qorvo,QRVO,Semiconductor,FY2026 (ended Mar 28 2026),3679.0,-1.09,46.2,14.99,19.74,1606.0,1219.0,8476,22.25
+Microchip Technology,MCHP,Semiconductor,FY2026 (ended Mar 31 2026),4713.0,7.08,57.73,11.24,23.04,5642.0,240.3,39884,108.26
+Monolithic Power Systems,MPWR,Semiconductor,FY2025 (ended Dec 31 2025),2790.0,26.43,55.18,26.11,13.7,24.1,1257.0,62302,77.34
+Silicon Laboratories,SLAB,Semiconductor,FY2025 (ended Jan 3 2026),784.76,34.29,58.23,-8.99,45.02,23.96,443.62,7309,
+Power Integrations,POWI,Semiconductor,FY2025 (ended Dec 31 2025),443.5,5.85,54.49,4.85,22.8,18.88,249.51,2871,116.68
+Lattice Semiconductor,LSCC,Semiconductor,FY2025 (ended Jan 3 2026),523.26,2.72,68.22,2.92,34.38,42.11,133.89,16382,450.98
+Rambus,RMBS,Semiconductor,FY2025 (ended Dec 31 2025),707.63,27.13,80.56,36.77,26.53,24.98,761.83,9403,39.76
+MACOM Technology Solutions,MTSI,Semiconductor,FY2025 (ended Oct 3 2025),967.26,32.58,54.69,13.41,25.28,603.45,785.98,20149,84.02
+Cirrus Logic,CRUS,Semiconductor,FY2026 (ended Mar 28 2026),1997.0,5.34,52.78,23.05,21.73,133.98,1154.0,5488,13.37
+Diodes Incorporated,DIOD,Semiconductor,FY2025 (ended Dec 31 2025),1482.0,13.04,31.2,2.46,10.94,95.61,377.03,4181,48.83
+Vishay Intertechnology,VSH,Semiconductor,FY2025 (ended Dec 31 2025),3069.0,4.47,19.38,1.23,,1073.0,515.23,4667,146.66
+Ambarella,AMBA,Semiconductor,FY2026 (ended Jan 31 2026),390.7,37.15,59.19,-21.12,61.06,13.44,312.57,3044,N/A (fwd PE 84.08)
+Synaptics,SYNA,Semiconductor,FY2026 (ended Jun 27 2026),1197.0,11.44,44.72,-4.76,31.9,876.8,442.5,3782,N/A (fwd PE 18.68)
+onsemi,ON,Semiconductor,FY2025 (ended Dec 31 2025),5995.0,-15.35,38.32,17.84,9.73,3253.0,2548.0,28844,47.47
+Allegro MicroSystems,ALGM,Semiconductor,FY2026 (ended Mar 27 2026),890.1,22.77,46.49,4.32,22.59,305.91,168.75,6757,N/A (unprofitable)
+CEVA Inc,CEVA,Semiconductor,FY2025 (ended Dec 31 2025),109.6,2.49,87.08,-10.35,68.28,16.13,222.04,762,N/A (fwd PE 38.96)
+SiTime Corporation,SITM,Semiconductor,FY2025 (ended Dec 31 2025),326.66,61.16,53.57,-19.05,36.95,3.61,808.41,17003,1083.34
+Universal Display Corporation,OLED,Semiconductor,FY2025 (ended Dec 31 2025),650.61,0.45,74.88,38.21,22.46,24.24,602.36,3823,20.07
+Semtech Corporation,SMTC,Semiconductor,FY2026 (ended Jan 25 2026),1050.0,15.47,52.51,11.74,18.7,517.99,195.18,12409,81.81
+HubSpot,HUBS,Software,FY2025 (ended Dec 31 2025),3131.0,19.0,83.8,0.2,28.9,0.0,1840.0,12560,128.5
+Atlassian,TEAM,Software,FY2025 (ended Jun 30 2025),5215.0,20.0,83.0,-2.5,51.2,987.7,2937.0,49150,-224.6
+Workday,WDAY,Software,FY2025 (ended Jan 31 2025),8446.0,16.4,85.0,4.9,31.1,2984.0,8017.0,48190,54.5
+ServiceNow,NOW,Software,FY2025 (ended Dec 31 2025),13278.0,21.0,77.5,13.5,22.3,1491.0,10055.0,141730,84.9
+Asana,ASAN,Software,FY2026 (ended Jan 31 2026),790.8,9.0,89.0,-25.0,38.1,0.0,434.0,2250,N/A (net loss)
+Freshworks,FRSH,Software,FY2025 (ended Dec 31 2025),838.8,16.0,85.0,1.6,19.5,0.0,843.7,3380,15.6
+Datadog,DDOG,Software,FY2025 (ended Dec 31 2025),3430.0,28.0,80.0,-1.0,45.1,983.4,4475.0,76820,587.9
+Zscaler,ZS,Software,FY2025 (ended Jul 31 2025),2673.1,23.0,77.0,-5.0,25.2,1700.7,3572.4,28840,-332
+MongoDB,MDB,Software,FY2025 (ended Jan 31 2025),2010.0,19.0,73.0,-11.0,29.7,0.0,2336.0,30190,-1072.6
+Regeneron Pharmaceuticals,REGN,Healthcare,2025,14343.0,1.0,44.6,25.8,40.8,2973.0,18866.0,85080,21.07
+Vertex Pharmaceuticals,VRTX,Healthcare,2025,12001.0,8.9,53.7,39.1,32.6,2036.0,12320.0,141110,29.1
+Biogen,BIIB,Healthcare,2025,9891.0,2.2,79.0,28.8,19.8,6658.0,4248.0,32900,39.49
+Illumina,ILMN,Healthcare,2025,4343.0,-0.7,68.3,20.0,22.3,2553.0,1633.0,32200,39.71
+Incyte Corporation,INCY,Healthcare,2025,5141.0,21.2,52.9,26.2,39.9,55.0,3581.0,26110,15.92
+Alnylam Pharmaceuticals,ALNY,Healthcare,2025,3714.0,65.2,81.6,13.5,35.5,2969.0,2908.0,35780,47.59
+BioMarin Pharmaceutical,BMRN,Healthcare,2025,3221.0,12.9,52.8,20.2,28.6,643.0,1561.0,12960,176.71
+Exelixis,EXEL,Healthcare,2025,2320.0,7.0,96.4,38.5,35.6,201.0,1663.0,14500,18.37
+Neurocrine Biosciences,NBIX,Healthcare,2025,2861.0,21.5,62.7,22.3,35.5,471.0,1480.0,16040,23.13
+United Therapeutics,UTHR,Healthcare,2025,3183.0,10.6,87.9,47.7,17.3,38.0,4697.0,21100,17.6
+Honeywell International,HON,Industrials,FY2025,37442.0,7.85,36.93,18.91,,35563.0,12487.0,65310,7.96
+Emerson Electric,EMR,Industrials,FY2025 (ended Sep 30 2025),18016.0,3.0,52.84,24.51,,13759.0,1544.0,83100,32.6
+Parker Hannifin,PH,Industrials,FY2026 (ended Jun 30 2026),21499.0,8.31,37.55,21.99,,8733.0,501.0,119670,33.33
+Eaton Corporation,ETN,Industrials,FY2025,27448.0,10.33,37.77,19.32,,10684.0,622.0,151810,39.79
+Illinois Tool Works,ITW,Industrials,FY2025,16044.0,0.92,44.1,26.54,,8969.0,851.0,76640,24.37
+Dover Corporation,DOV,Industrials,FY2025,8093.0,4.47,40.16,17.85,,3584.0,1677.0,25440,22.84
+AMETEK,AME,Industrials,FY2025,7401.0,6.63,36.38,26.15,,2572.0,458.0,53460,34.09
+Roper Technologies,ROP,Industrials,FY2025,7903.0,12.26,69.24,28.29,,9301.0,297.4,41120,17.49
+Xylem Inc,XYL,Industrials,FY2025,9035.0,5.52,38.46,14.6,,2475.0,1479.0,24920,25.4
+Ingersoll Rand,IR,Industrials,FY2025,7651.0,5.75,43.61,19.74,,4785.0,1249.0,29200,30.99
+Yum China Holdings,YUMC,Consumer/Retail,FY2025 (ended Dec 31 2025),11797.0,4.37,20.56,11.25,,2348.0,506.0,15330,16.46
+Chipotle Mexican Grill,CMG,Consumer/Retail,FY2025 (ended Dec 31 2025),11926.0,5.41,40.1,16.94,,5076.0,351.0,48740,35.7
+Domino's Pizza,DPZ,Consumer/Retail,FY2025 (ended Dec 28 2025),4940.0,4.96,28.63,19.33,,5048.0,126.0,11470,19.63
+Tractor Supply Company,TSCO,Consumer/Retail,FY2025 (ended Dec 27 2025),15524.0,4.31,36.42,9.45,,5943.0,194.0,18160,18.16
+Ross Stores,ROST,Consumer/Retail,FY2025 (ended Jan 31 2026),22751.0,7.67,27.71,11.9,,5212.0,4594.0,73750,27.92
+TJX Companies,TJX,Consumer/Retail,FY2025 (ended Jan 31 2026),60372.0,7.12,30.96,11.89,,13489.0,6230.0,144440,24.31
+Ulta Beauty,ULTA,Consumer/Retail,FY2025 (ended Jan 31 2026),12393.0,9.71,43.05,12.37,,2182.0,424.0,23590,20.1
+Comcast Corporation,CMCSA,Telecom,FY2025 (ended Dec 31 2025),123707.0,-0.02,71.75,16.71,,105033.0,9481.0,95140,8.68
+Verizon Communications,VZ,Telecom,FY2025 (ended Dec 31 2025),138191.0,2.53,59.07,22.9,,184814.0,19048.0,208650,13.08
+T-Mobile US,TMUS,Telecom,FY2025 (ended Dec 31 2025),88309.0,8.49,63.17,21.98,,123646.0,5598.0,200910,19.64
