@@ -1,13 +1,13 @@
 {
   "model": "random_forest",
   "importance": {
-    "log_revenue": 0.089,
-    "revenue_growth_yoy_pct": 0.092,
-    "gross_margin_pct": 0.092,
-    "operating_margin_pct": 0.079,
-    "rd_expense_pct_of_revenue": 0.07,
-    "debt_to_revenue": 0.163,
-    "cash_to_revenue": 0.141,
-    "net_debt_to_revenue": 0.274
+    "log_revenue": 0.145,
+    "sector_z_revenue_growth_yoy_pct": 0.097,
+    "sector_z_gross_margin_pct": 0.125,
+    "sector_z_operating_margin_pct": 0.211,
+    "sector_z_rd_expense_pct_of_revenue": 0.058,
+    "sector_z_debt_to_revenue": 0.162,
+    "sector_z_cash_to_revenue": 0.076,
+    "sector_z_net_debt_to_revenue": 0.126
   }
 }
